@@ -39,7 +39,7 @@ namespace Spectre.Console.Plus
       }
     }
 
-    public virtual IRenderable CascadableStyle( Style style )
+    public virtual IRenderable CascadeStyle( Style style )
     {
       return new StyledContentContainer( style, this );
     }

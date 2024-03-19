@@ -13,6 +13,6 @@ namespace Spectre.Console.Plus
     /// </summary>
     /// <param name="style">要继承的样式</param>
     /// <returns>继承样式后的可渲染对象</returns>
-    IRenderable CascadableStyle( Style style );
+    IRenderable CascadeStyle( Style style );
   }
 }

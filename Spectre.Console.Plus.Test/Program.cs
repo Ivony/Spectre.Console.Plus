@@ -4,4 +4,4 @@ using static Spectre.Console.Plus.Contents;
 
 IAnsiConsole console = AnsiConsole.Console;
 
-console.Write( Block( "Hello", " ", Span( Color.Aqua, "World" ), Span( Color.Red, "!" ) ) );
+console.Write( Block( "Hello", " ", (Color.Aqua, "World", (Color.Red, "!")) ) );

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.9.34701.34
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spectre.Console.Plus", "Spectre.Console.Plus\Spectre.Console.Plus.csproj", "{89AB6946-CF02-48CD-A2E0-659477873407}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Spectre.Console.Plus", "Spectre.Console.Plus\Spectre.Console.Plus.csproj", "{89AB6946-CF02-48CD-A2E0-659477873407}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Spectre.Console.Plus.Test", "Spectre.Console.Plus.Test\Spectre.Console.Plus.Test.csproj", "{422612FE-9DC2-4DCB-8642-6BC0093B57E3}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{89AB6946-CF02-48CD-A2E0-659477873407}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{89AB6946-CF02-48CD-A2E0-659477873407}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{89AB6946-CF02-48CD-A2E0-659477873407}.Release|Any CPU.Build.0 = Release|Any CPU
+		{422612FE-9DC2-4DCB-8642-6BC0093B57E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{422612FE-9DC2-4DCB-8642-6BC0093B57E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{422612FE-9DC2-4DCB-8642-6BC0093B57E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{422612FE-9DC2-4DCB-8642-6BC0093B57E3}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

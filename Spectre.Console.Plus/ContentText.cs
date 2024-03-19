@@ -2,25 +2,40 @@
 
 namespace Spectre.Console.Plus;
 
-public record ContentText( string Text, Style? Style ) : ICascadableStyleContent
+public class ContentText( string text ) : ICascadableStyleContent
 {
 
-  IRenderable ICascadableStyleContent.CascadeStyle( Style style )
-  {
-    if ( Style == null )
-      return new ContentText( Text, style );
 
-    else
-      return this;
+  private ContentText( CascadableStyle style, string text ) : this( text )
+  {
+    Style = style;
   }
 
-  Measurement IRenderable.Measure( RenderOptions options, int maxWidth )
+
+  public string Text => text;
+
+  protected readonly CascadableStyle Style = CascadableStyle.Empty;
+
+
+  IRenderable ICascadableStyleContent.CascadeStyle( CascadableStyle style )
+  {
+    return new ContentText( Style << style, text );
+  }
+
+  public Measurement Measure( RenderOptions options, int maxWidth )
   {
     return new Measurement( 0, Math.Min( Text.Length, maxWidth ) );
   }
 
-  IEnumerable<Segment> IRenderable.Render( RenderOptions options, int maxWidth )
+  public IEnumerable<Segment> Render( RenderOptions options, int maxWidth )
   {
-    return [new Segment( Text, Style ?? Style.Plain )];
+    return [new Segment( Text, Style )];
   }
+
+  public static implicit operator ContentText( string text ) => new ContentText( text );
+  public static implicit operator ContentNode( ContentText text ) => new ContentNode( text );
+
+
+  public override string ToString() => Text;
+
 }

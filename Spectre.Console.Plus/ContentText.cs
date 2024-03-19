@@ -2,7 +2,7 @@
 
 namespace Spectre.Console.Plus;
 
-public class ContentText( string text ) : ICascadableStyleContent
+public class ContentText( string text ) : ContentNode, ICascadableStyleContent
 {
 
 
@@ -17,23 +17,17 @@ public class ContentText( string text ) : ICascadableStyleContent
   protected readonly CascadableStyle Style = CascadableStyle.Empty;
 
 
-  IRenderable ICascadableStyleContent.CascadeStyle( CascadableStyle style )
+  ContentNode ICascadableStyleContent.CascadeStyle( CascadableStyle style )
   {
     return new ContentText( Style << style, text );
   }
 
-  public Measurement Measure( RenderOptions options, int maxWidth )
+  public override void Render( ContentRenderContext context )
   {
-    return new Measurement( 0, Math.Min( Text.Length, maxWidth ) );
-  }
-
-  public IEnumerable<Segment> Render( RenderOptions options, int maxWidth )
-  {
-    return [new Segment( Text, Style )];
+    context.Console.Write( text, Style );
   }
 
   public static implicit operator ContentText( string text ) => new ContentText( text );
-  public static implicit operator ContentNode( ContentText text ) => new ContentNode( text );
 
 
   public override string ToString() => Text;

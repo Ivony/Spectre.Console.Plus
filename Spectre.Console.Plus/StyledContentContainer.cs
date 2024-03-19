@@ -7,12 +7,12 @@ public abstract class StyledContentContainer( CascadableStyle style, params Cont
 
   public CascadableStyle Style => style;
 
-  protected override IEnumerable<Segment> RenderChild( SegmentRenderContext context, IRenderable child )
+  protected override void RenderChild( ContentRenderContext context, ContentNode child )
   {
     if ( child is ICascadableStyleContent cascadable )
       child = cascadable.CascadeStyle( style );
 
-    return base.RenderChild( context, child );
+    base.RenderChild( context, child );
   }
 
 }

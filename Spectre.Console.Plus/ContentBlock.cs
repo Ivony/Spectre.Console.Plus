@@ -4,18 +4,18 @@ namespace Spectre.Console.Plus;
 
 public class ContentBlock( CascadableStyle style, params ContentNode[] children ) : StyledContentContainer( style, children ), ICascadableStyleContent
 {
-  public IRenderable CascadeStyle( CascadableStyle style )
+  public ContentNode CascadeStyle( CascadableStyle style )
   {
     return new ContentBlock( Style >> style, children );
-
   }
 
-  public override IEnumerable<Segment> Render( RenderOptions options, int maxWidth )
+  public override void Render( ContentRenderContext context )
   {
-    return base.Render( options, maxWidth ).Concat( [Segment.LineBreak] );
+    base.Render( context );
+
+    context.Console.WriteLine();
   }
 
 
-  public static implicit operator ContentNode( ContentBlock block ) => new ContentNode( block );
 
 }

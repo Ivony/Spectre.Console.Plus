@@ -1,7 +1,8 @@
 ﻿using Spectre.Console;
+using Spectre.Console.Plus;
 
 using static Spectre.Console.Plus.Contents;
 
 IAnsiConsole console = AnsiConsole.Console;
 
-console.Write( Block( "Hello", " ", (Color.Aqua, "World", (Color.Red, "!")) ) );
+console.Render( Block( "Hello", " ", (Color.Aqua, "World", (Color.Red, "!")) ) );

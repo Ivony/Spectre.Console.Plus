@@ -1,6 +1,4 @@
-﻿using Spectre.Console.Rendering;
-
-namespace Spectre.Console.Plus;
+﻿namespace Spectre.Console.Plus;
 public abstract class StyledContentContainer( CascadableStyle style, params ContentNode[] children ) : ContentContainer( children )
 {
 
